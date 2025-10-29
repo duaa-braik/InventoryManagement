@@ -1,0 +1,7 @@
+﻿services:
+  inventorymanagement.api:
+    image: inventorymanagement.api
+    build:
+      context: .
+      dockerfile: InventoryManagement.API/Dockerfile
+
