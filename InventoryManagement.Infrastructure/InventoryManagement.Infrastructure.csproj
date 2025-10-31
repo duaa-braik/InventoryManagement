@@ -6,4 +6,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\FlashSaleDB\FlashSaleDB\FlashSaleDB.csproj" />
+      <ProjectReference Include="..\InventoryManagement.Domain\InventoryManagement.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
