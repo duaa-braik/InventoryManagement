@@ -16,6 +16,8 @@ builder.Services.AddDbContext<FlashSaleDbContext>(options =>
     options.UseSqlServer(builder.Configuration["ConnectionString"]);
 });
 
+builder.Services.AddServices();
+
 builder.Services.AddVersioning();
 
 var app = builder.Build();
