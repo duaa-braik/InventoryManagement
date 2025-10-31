@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <UserSecretsId>0946cb9e-359c-4d05-94b9-4dee780cb7e7</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -17,6 +18,10 @@
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\FlashSaleDB\FlashSaleDB\FlashSaleDB.csproj" />
     </ItemGroup>
 
 </Project>
