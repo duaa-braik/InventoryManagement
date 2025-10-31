@@ -10,4 +10,8 @@
       <ProjectReference Include="..\InventoryManagement.Domain\InventoryManagement.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="StackExchange.Redis" Version="2.9.32" />
+    </ItemGroup>
+
 </Project>
