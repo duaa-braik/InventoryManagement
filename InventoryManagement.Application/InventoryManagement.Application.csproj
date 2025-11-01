@@ -11,6 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="Mapster" Version="9.0.0-pre01" />
       <PackageReference Include="StackExchange.Redis" Version="2.9.32" />
     </ItemGroup>
 
