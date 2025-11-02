@@ -26,4 +26,23 @@ public class InventoryRepository : IInventoryRepository
             )
             .ToListAsync();
     }
+
+    public async Task<List<ProductModel>> GetProductsAsync(int page, int pageSize)
+    {
+        return await _context.Product
+            .Skip(page * pageSize)
+            .Take(pageSize)
+            .OrderBy(p => p.Name)
+            .Select(p => new ProductModel()
+            {
+                ProductId = p.Id,
+                Name = p.Name,
+                Price = p.Price,
+                SaleId = p.SaleId,
+                ImageUrl = p.ImageUrl,
+                Category = p.Category,
+                Description = p.Description,
+            })
+            .ToListAsync();
+    }
 }
