@@ -14,6 +14,7 @@ public static class ServicesExtention
             .Connect(configuration["Redis"]!));
         services.AddScoped<IInventoryCacheService, InventoryCacheService>();
         services.AddScoped<IInventoryRepository, InventoryRepository>();
+        services.AddScoped<IInventoryService, InventoryService>();
         return services;
     }
 }
