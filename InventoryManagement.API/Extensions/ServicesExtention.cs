@@ -15,6 +15,9 @@ public static class ServicesExtention
         services.AddScoped<IInventoryCacheService, InventoryCacheService>();
         services.AddScoped<IInventoryRepository, InventoryRepository>();
         services.AddScoped<IInventoryService, InventoryService>();
+        services.AddScoped<ICartService, CartService>();
+        services.AddScoped<ICartRepository, CartRespository>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         return services;
     }
 }

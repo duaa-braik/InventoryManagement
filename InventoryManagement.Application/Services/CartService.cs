@@ -16,7 +16,6 @@ public class CartService : ICartService
     {
         _cartRepository = cartRepository;
         _unitOfWork = unitOfWork;
-        
     }
 
     public async Task<CartModel> CreateCartAsync(CreateCartRequest cartRequest)
@@ -30,7 +29,10 @@ public class CartService : ICartService
             await _unitOfWork.SaveChangesAsync();
             transaction.Commit();
 
-            return cart.Adapt<CartModel>();
+            var createdCart = cart.Adapt<CartModel>();
+            createdCart.CartId = cart.Id.ToString();
+            
+            return createdCart;
         }
         catch
         {
