@@ -7,5 +7,5 @@ public interface ICartService
 {
     Task<CartModel> CreateCartAsync(CreateCartRequest cartRequest);
 
-    Task AddItemToCartAsync(AddItemToCartRequest request, string cartId, string itemId);
+    Task<CartModel> AddItemToCartAsync(AddItemToCartRequest request, string cartId, string itemId);
 }

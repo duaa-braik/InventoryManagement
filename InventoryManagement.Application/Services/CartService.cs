@@ -44,7 +44,7 @@ public class CartService : ICartService
         }
     }
 
-    public async Task AddItemToCartAsync(AddItemToCartRequest request, string cartId, string itemId)
+    public async Task<CartModel> AddItemToCartAsync(AddItemToCartRequest request, string cartId, string itemId)
     {
         var transaction = _unitOfWork.BeginTransaction();
 
@@ -54,16 +54,21 @@ public class CartService : ICartService
         
             var availableItemQuantity = int.TryParse(availableStock.ToString(), out var availableQuantity) ? availableQuantity : 0;
 
-            if (availableItemQuantity < request.Quantity) return;
+            if (availableItemQuantity < request.Quantity)
+            {
+                throw new Exception();
+            };
             
             var cartItem = request.Adapt<CartItem>();
             cartItem.ProductId = Guid.Parse(itemId);
             cartItem.CartId = Guid.Parse(cartId);
             
             _cartRepository.AddItemToCart(cartItem);
-
             await _unitOfWork.SaveChangesAsync();
+            
             transaction.Commit();
+            
+            return await _cartRepository.GetCart(cartItem.CartId);
         }
         catch (Exception ex)
         {
