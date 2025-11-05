@@ -25,4 +25,12 @@ public class CartController : ControllerBase
         
         return Ok(createdCart.Adapt<CreateCartResponse>());
     }
+
+    [HttpPost("{cartId}/items/{itemId}")]
+    public async Task<ActionResult<AddItemToCartResponse>> AddItemToCart(AddItemToCartRequest request, string cartId, string itemId)
+    {
+        var cart = await _cartService.AddItemToCartAsync(request, cartId, itemId);
+        
+        return Ok(cart.Adapt<AddItemToCartResponse>());
+    }
 }
