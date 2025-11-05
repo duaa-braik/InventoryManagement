@@ -6,5 +6,5 @@ public class CartModel
 
     public string UserId { get; set; }
 
-    public List<ProductModel> Products { get; set; } = [];
+    public List<CartItemModel> CartItems { get; set; } = [];
 }
