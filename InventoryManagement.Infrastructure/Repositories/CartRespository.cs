@@ -1,9 +1,10 @@
 using FlashSaleDB;
 using FlashSaleDB.Entities;
+using InventoryManagement.Domain.Interfaces;
 
 namespace InventoryManagement.Infrastructure.Repositories;
 
-public class CartRespository
+public class CartRespository : ICartRepository
 {
     private readonly FlashSaleDbContext _context;
     
@@ -15,5 +16,10 @@ public class CartRespository
     public void CreateCart(Cart cart)
     {
         _context.Cart.Add(cart);
+    }
+
+    public void AddItemToCart(CartItem cartItem)
+    {
+        _context.CartItem.Add(cartItem);
     }
 }
