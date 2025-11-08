@@ -18,16 +18,9 @@ public class ProductController : ControllerBase
     }
     
     [HttpGet]
-    public ActionResult<List<GetProductDto>> GetProducts(int page, int pageSize)
+    public async Task<ActionResult<List<GetProductDto>>> GetProducts(int page, int pageSize)
     {
-        var products = new List<GetProductDto>();
-        var thread = new Thread(() =>
-        {
-            products = _inventoryService.GetProducts(page, pageSize).Result.Adapt<List<GetProductDto>>(); 
-        });
-        thread.Start();
-        thread.Join();
-        
-        return Ok(products);
+        var products = await _inventoryService.GetProducts(page, pageSize);
+        return Ok(products.Adapt<List<GetProductDto>>());
     }
 }
