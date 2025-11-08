@@ -8,7 +8,18 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\FlashSaleDB\FlashSaleDB\FlashSaleDB.csproj" />
+      <ProjectReference Include="..\InventoryManagement.Application\InventoryManagement.Application.csproj" />
       <ProjectReference Include="..\InventoryManagement.Domain\InventoryManagement.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="RabbitMQ.Client" Version="7.1.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.Hosting.Abstractions">
+        <HintPath>..\..\..\..\..\Program Files\dotnet\shared\Microsoft.AspNetCore.App\8.0.21\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

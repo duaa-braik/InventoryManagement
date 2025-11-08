@@ -10,4 +10,8 @@
       <ProjectReference Include="..\..\FlashSaleDB\FlashSaleDB\FlashSaleDB.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="StackExchange.Redis" Version="2.9.32" />
+    </ItemGroup>
+
 </Project>

@@ -25,7 +25,7 @@ public class CartRespository : ICartRepository
         _context.CartItem.Add(cartItem);
     }
 
-    public async Task<CartModel> GetCart(Guid cartId)
+    public async Task<CartModel> GetCart(Guid? cartId)
     {
         return await _context.Cart
             .Include(c => c.CartItems)
@@ -45,6 +45,14 @@ public class CartRespository : ICartRepository
                     SaleId = ci.Product.SaleId.GetValueOrDefault(),
                 }).ToList()
             })
+            .FirstAsync();
+    }
+
+    public async Task<Guid?> GetCartId(Guid orderId)
+    {
+        return await _context.Order
+            .Where(o => o.Id == orderId)
+            .Select(o => o.CartId)
             .FirstAsync();
     }
 }

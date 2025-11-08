@@ -9,5 +9,7 @@ public interface ICartRepository
 
     void AddItemToCart(CartItem cartItem);
 
-    Task<CartModel> GetCart(Guid cartId);
+    Task<CartModel> GetCart(Guid? cartId);
+
+    Task<Guid?> GetCartId(Guid orderId);
 }
