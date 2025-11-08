@@ -20,6 +20,7 @@ builder.Services.AddDbContext<FlashSaleDbContext>(options =>
 builder.Services.AddServices(builder.Configuration);
 
 builder.Services.AddVersioning();
+builder.Services.AddRabbitMq(builder.Configuration);
 
 var app = builder.Build();
 

@@ -18,6 +18,7 @@ public static class ServicesExtention
         services.AddScoped<ICartService, CartService>();
         services.AddScoped<ICartRepository, CartRespository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<IReservationService, ReservationService>();
         return services;
     }
 }
