@@ -25,7 +25,7 @@ public class ReservationService : IReservationService
         try
         {
             var reservation = JsonSerializer.Deserialize<ReservationMessage>(message, options: JsonSerializerOptions.Web);
-            var orderId = Guid.Parse(reservation?.OrderId ?? Guid.Empty.ToString());
+            var orderId = Guid.Parse(reservation?.Id ?? Guid.Empty.ToString());
 
             var cartId = await _cartRepository.GetCartId(orderId);
 
