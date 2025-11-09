@@ -8,6 +8,7 @@ public static class RabbitMq
     public static IServiceCollection AddRabbitMq(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddHostedService<ReservationQueue>();
+        services.AddHostedService<PaymentQueue>();
         
         services.AddSingleton(
             new ConnectionFactory()
