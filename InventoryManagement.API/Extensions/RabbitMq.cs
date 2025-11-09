@@ -14,7 +14,9 @@ public static class RabbitMq
             {
                 HostName = configuration["MQServer:HostName"]!,
                 UserName = configuration["MQServer:Username"]!,
-                Password = configuration["MQServer:Password"]!
+                Password = configuration["MQServer:Password"]!,
+                VirtualHost = configuration["MQServer:VirtualHost"]!,
+                Port = int.TryParse(configuration["MQServer:Port"], out var port) ? port : 0,
             });
             
         return services;
