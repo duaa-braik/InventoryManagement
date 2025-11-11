@@ -1,4 +1,5 @@
 ﻿using FlashSaleDB;
+using FlashSaleDB.Entities;
 using InventoryManagement.Domain.Interfaces;
 using InventoryManagement.Domain.Models;
 using Microsoft.EntityFrameworkCore;
@@ -46,5 +47,25 @@ public class InventoryRepository : IInventoryRepository
                 Description = p.Description,
             })
             .ToListAsync();
+    }
+
+    public async Task<InventoryModel> GetInventoryByProductId(Guid productId)
+    {
+        return await _context.Inventory
+            .Where(i => i.ProductId == productId)
+            .Select(i => new InventoryModel
+            {
+                Id = i.Id.ToString(), 
+                ProductId = i.ProductId.ToString(),
+                AvailableQuantity = i.AvailableQuantity, 
+                ReservedQuantity = i.ReservedQuantity
+            }).FirstAsync();
+    }
+
+    public void UpdateProductQuantity(Inventory inventory)
+    {
+        _context.Inventory.Attach(inventory);
+        _context.Entry(inventory).Property(s => s.AvailableQuantity).IsModified = true;
+        _context.Entry(inventory).Property(s => s.UpdatedAt).IsModified = true;
     }
 }
