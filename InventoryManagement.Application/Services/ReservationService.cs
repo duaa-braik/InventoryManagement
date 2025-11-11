@@ -44,4 +44,21 @@ public class ReservationService : IReservationService
             Console.WriteLine(ex.Message);
         }
     }
+    public async Task ProcessReservationForOrderAsync(Guid orderId)
+    {
+        var cartId = await _cartRepository.GetCartId(orderId);
+        var cart = await _cartRepository.GetCart(cartId);
+
+        var transaction = _unitOfWork.CreateRedisTransaction();
+
+        foreach (var cartItem in cart.CartItems)
+        {
+            await _inventoryCacheService.DecrementQuantityAsync(
+                cartItem.Quantity,
+                cartItem.ProductId,
+                transaction);
+        }
+
+        await transaction.ExecuteAsync();
+    }
 }

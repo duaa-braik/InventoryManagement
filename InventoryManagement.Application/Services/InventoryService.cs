@@ -74,6 +74,29 @@ public class InventoryService : IInventoryService
             throw;
         }
     }
+    public async Task UpdateInventoryForOrderAsync(Guid orderId)
+    {
+        var transaction = _unitOfWork.BeginTransaction();
+
+        try
+        {
+            var cartId = await _cartRepository.GetCartId(orderId);
+            var cart = await _cartRepository.GetCart(cartId);
+
+            await UpdateProductsQuantities(cart.CartItems);
+
+            await _unitOfWork.SaveChangesAsync();
+            transaction.Commit();
+
+            _logger.LogInformation("Successfully updated inventory (DB) for order {OrderId}", orderId);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Failed to update inventory (DB) for order {OrderId}", orderId);
+            transaction.Rollback();
+            throw;
+        }
+    }
 
     private async Task UpdateProductsQuantities(List<CartItemModel> cartItems)
     {
