@@ -7,11 +7,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\FlashSaleDB\FlashSaleDB\FlashSaleDB.csproj" />
       <ProjectReference Include="..\InventoryManagement.Domain\InventoryManagement.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="Mapster" Version="9.0.0-pre01" />
+      <PackageReference Include="Motor.Extensions.Diagnostics.Logging" Version="0.16.0" />
       <PackageReference Include="StackExchange.Redis" Version="2.9.32" />
     </ItemGroup>
 

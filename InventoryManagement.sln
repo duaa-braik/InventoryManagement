@@ -1,19 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagement.API", "InventoryManagement.API\InventoryManagement.API.csproj", "{DAC3A732-641D-48BA-BDD7-E9BDF3A4003F}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryManagement.API", "InventoryManagement.API\InventoryManagement.API.csproj", "{DAC3A732-641D-48BA-BDD7-E9BDF3A4003F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A4211151-4122-4C15-B3FA-39CBBE003EAA}"
 	ProjectSection(SolutionItems) = preProject
 		compose.yaml = compose.yaml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagement.Application", "InventoryManagement.Application\InventoryManagement.Application.csproj", "{FFE66D03-17E1-4E80-BA92-5C3FD6331989}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryManagement.Application", "InventoryManagement.Application\InventoryManagement.Application.csproj", "{FFE66D03-17E1-4E80-BA92-5C3FD6331989}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagement.Infrastructure", "InventoryManagement.Infrastructure\InventoryManagement.Infrastructure.csproj", "{7B9F38A6-C714-4A8C-953F-E1847DCC34DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryManagement.Infrastructure", "InventoryManagement.Infrastructure\InventoryManagement.Infrastructure.csproj", "{7B9F38A6-C714-4A8C-953F-E1847DCC34DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlashSaleDB", "..\FlashSaleDB\FlashSaleDB\FlashSaleDB.csproj", "{BC8E1E92-175B-43A1-8FAC-5641EB48717D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryManagement.Domain", "InventoryManagement.Domain\InventoryManagement.Domain.csproj", "{A81A9E83-2294-421E-BB28-DBADFE431177}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagement.Domain", "InventoryManagement.Domain\InventoryManagement.Domain.csproj", "{A81A9E83-2294-421E-BB28-DBADFE431177}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlashSaleDB", "..\..\FlashSaleDB\FlashSaleDB\FlashSaleDB.csproj", "{6590C09C-3E6B-49B7-87AF-57DEC2FF4996}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,13 +36,16 @@ Global
 		{7B9F38A6-C714-4A8C-953F-E1847DCC34DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B9F38A6-C714-4A8C-953F-E1847DCC34DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B9F38A6-C714-4A8C-953F-E1847DCC34DB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC8E1E92-175B-43A1-8FAC-5641EB48717D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC8E1E92-175B-43A1-8FAC-5641EB48717D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC8E1E92-175B-43A1-8FAC-5641EB48717D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC8E1E92-175B-43A1-8FAC-5641EB48717D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A81A9E83-2294-421E-BB28-DBADFE431177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A81A9E83-2294-421E-BB28-DBADFE431177}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A81A9E83-2294-421E-BB28-DBADFE431177}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A81A9E83-2294-421E-BB28-DBADFE431177}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6590C09C-3E6B-49B7-87AF-57DEC2FF4996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6590C09C-3E6B-49B7-87AF-57DEC2FF4996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6590C09C-3E6B-49B7-87AF-57DEC2FF4996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6590C09C-3E6B-49B7-87AF-57DEC2FF4996}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

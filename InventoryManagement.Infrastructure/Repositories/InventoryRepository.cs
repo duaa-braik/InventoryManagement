@@ -1,4 +1,4 @@
-using FlashSaleDB;
+﻿using FlashSaleDB;
 using InventoryManagement.Domain.Interfaces;
 using InventoryManagement.Domain.Models;
 using Microsoft.EntityFrameworkCore;
@@ -19,21 +19,23 @@ public class InventoryRepository : IInventoryRepository
         return await _context.Product
             .Include(p => p.Inventory)
             .Select(p => new CacheProduct
-                {
-                    Id = p.Id,
-                    AvailableQuantity = p.Inventory.AvailableQuantity
-                }
-            )
+            {
+                Id = p.Id,
+                // Inventory might be null → 0, otherwise take the value
+                AvailableQuantity = p.Inventory != null
+                    ? p.Inventory.AvailableQuantity
+                    : 0
+            })
             .ToListAsync();
     }
 
     public async Task<List<ProductModel>> GetProductsAsync(int page, int pageSize)
     {
         return await _context.Product
-            .Skip(page * pageSize)
+            .OrderBy(p => p.Name)                    // order first
+            .Skip(page * pageSize)                   // then page
             .Take(pageSize)
-            .OrderBy(p => p.Name)
-            .Select(p => new ProductModel()
+            .Select(p => new ProductModel
             {
                 ProductId = p.Id,
                 Name = p.Name,

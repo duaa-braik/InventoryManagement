@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\FlashSaleDB\FlashSaleDB\FlashSaleDB.csproj" />
+      <ProjectReference Include="..\..\..\FlashSaleDB\FlashSaleDB\FlashSaleDB.csproj" />
       <ProjectReference Include="..\InventoryManagement.Application\InventoryManagement.Application.csproj" />
       <ProjectReference Include="..\InventoryManagement.Domain\InventoryManagement.Domain.csproj" />
     </ItemGroup>
